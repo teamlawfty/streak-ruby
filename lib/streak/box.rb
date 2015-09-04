@@ -22,7 +22,7 @@ module Streak
     end
 
     def self.update_linked_boxes(key, linked_box_keys)
-      res = Streak.request(:post, "/boxes/#{key}", MultiJson.dump({'linkedCaseKeys' => linked_box_keys}))
+      res = Streak.request(:post, "/boxes/#{key}", MultiJson.dump({'linkedBoxKeys' => linked_box_keys}))
       convert_to_streak_object(res, Box)
     end
 

@@ -21,6 +21,11 @@ module Streak
       convert_to_streak_object(res, Box)
     end
 
+    def self.update_linked_boxes(key, linked_box_keys)
+      res = Streak.request(:post, "/boxes/#{key}", MultiJson.dump({'linkedCaseKeys' => linked_box_keys}))
+      convert_to_streak_object(res, Box)
+    end
+
     def self.update_field(key,field_key,field_val)
       res = Streak.request(:post, "/boxes/#{key}/fields/#{field_key}",MultiJson.dump({value: field_val}))
     end

@@ -55,7 +55,7 @@ This gem currently supports:
 * Search (TODO)
 * Newsfeed (TODO)
 * Email filters for boxes
-
+* Box's linked boxes
 
 ## Contributing
 

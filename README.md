@@ -54,6 +54,7 @@ This gem currently supports:
 * Snippets (TODO)
 * Search (TODO)
 * Newsfeed (TODO)
+* Email filters for boxes
 
 
 ## Contributing

@@ -42,6 +42,16 @@ describe Streak::Box do
     end
   end
 
+  describe ".delete" do
+    it "should call the api" do
+      api.should_receive(:delete).
+        with(Streak.api_url("/boxes/box_key_1"), nil, nil).
+        and_return(test_response(box))
+
+      Streak::Box.delete("box_key_1")
+    end
+  end
+
   describe ".update" do
     it "should call the api" do
       api.should_receive(:post).
@@ -53,7 +63,7 @@ describe Streak::Box do
   end
 
   describe ".update_field" do
-    it "should call the api" do 
+    it "should call the api" do
       api.should_receive(:post).
         with(Streak.api_url("/boxes/box_key_1/fields/1001"),nil,"{\"value\":\"somevalue\"}").
         and_return(test_response(test_field_value({"key"=>"1001","value" =>"somevalue"})))

@@ -16,6 +16,11 @@ module Streak
       convert_to_streak_object(res, Box)
     end
 
+    def self.delete(key)
+      res = Streak.request(:delete, "/boxes/#{key}", nil)
+      # convert_to_streak_object(res, Box)
+    end
+
     def self.update(key, params)
       res = Streak.request(:post, "/boxes/#{key}", MultiJson.dump(params))
       convert_to_streak_object(res, Box)

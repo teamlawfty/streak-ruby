@@ -34,6 +34,10 @@ Create a box:
 
     Streak::Box.create(pipeline_key, { :name => 'My customer' })
 
+Retrieve list of boxes for a pipeline:
+
+    Streak::Box.all(pipeline_key)
+
 Update the value of box field:
 
     Streak::FieldValue.update(box_key, field_key, :value => value)

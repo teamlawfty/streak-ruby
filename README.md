@@ -22,6 +22,8 @@ Configure your api key:
 
     Streak.api_key = '7941e92da6247ab955aab91ec479a4a2'
 
+## Pipelines
+
 Retrieve all pipelines:
 
     Streak::Pipeline.all
@@ -29,6 +31,8 @@ Retrieve all pipelines:
 Retrieve one pipeline:
 
     Streak::Pipeline.find(pipeline_key)
+
+## Boxes
 
 Create a box:
 

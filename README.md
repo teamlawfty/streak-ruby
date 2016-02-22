@@ -49,6 +49,12 @@ Update the value of box field:
 Delete a Box:
 
     Streak::Box.delete(demobox.key)
+    
+## Fields
+
+Retrieve list of fields for a pipeline:
+
+    Streak::Field.all(pipeline_key)
 
 See the complete Streak API reference here: [http://www.streak.com/api/](http://www.streak.com/api/)
 

@@ -45,16 +45,22 @@ Retrieve list of boxes for a pipeline:
 Update the value of box field:
 
     Streak::FieldValue.update(box_key, field_key, :value => value)
-    
+
 Delete a Box:
 
     Streak::Box.delete(demobox.key)
-    
+
 ## Fields
 
 Retrieve list of fields for a pipeline:
 
     Streak::Field.all(pipeline_key)
+
+## Search
+
+Submit a Search query
+
+    Streak::Search.query("box_key_1")
 
 See the complete Streak API reference here: [http://www.streak.com/api/](http://www.streak.com/api/)
 

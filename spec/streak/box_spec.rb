@@ -62,6 +62,21 @@ describe Streak::Box do
     end
   end
 
+  describe ".update_linked_boxes" do
+    it "should call the api" do
+      api.should_receive(:post).
+        with(Streak.api_url("/boxes/box_key_1"), nil, "{\"linkedBoxKeys\":[\"linked_box_key_1\"]}").
+        and_return(test_response(box))
+
+      Streak::Box.update_linked_boxes("box_key_1", ["linked_box_key_1"])
+    end
+  end
+
+  # def self.update_linked_boxes(key, linked_box_keys)
+  #     res = Streak.request(:post, "/boxes/#{key}", MultiJson.dump({'linkedBoxKeys' => linked_box_keys}))
+  #     convert_to_streak_object(res, Box)
+  #   end
+
  describe ".update_fields" do
     it "should call the api" do
       api.should_receive(:post).
@@ -72,8 +87,6 @@ describe Streak::Box do
       Streak::Box.update_fields("box_key_1", params)
     end
   end
-
-
 
   describe ".update_field" do
     it "should call the api" do

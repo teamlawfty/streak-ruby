@@ -62,6 +62,19 @@ describe Streak::Box do
     end
   end
 
+ describe ".update_fields" do
+    it "should call the api" do
+      api.should_receive(:post).
+        with(Streak.api_url("/boxes/box_key_1/fields"), nil, "[{\"key\":\"1005\",\"value\":\"test@test.com\"}]").
+        and_return(test_response(box))
+
+      params = [{key: "1005", value: "test@test.com"}]
+      Streak::Box.update_fields("box_key_1", params)
+    end
+  end
+
+
+
   describe ".update_field" do
     it "should call the api" do
       api.should_receive(:post).

@@ -42,9 +42,14 @@ Retrieve list of boxes for a pipeline:
 
     Streak::Box.all(pipeline_key)
 
-Update the value of box field:
+Update a single value of box field:
 
     Streak::FieldValue.update(box_key, field_key, :value => value)
+
+Update multiple Box fields:
+
+    params = [{key: "1005", value: "test@test.com"}]
+    Streak::Box.update_fields("box_key_1", params)
 
 Delete a Box:
 

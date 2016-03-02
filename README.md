@@ -51,6 +51,10 @@ Update multiple Box fields:
     params = [{key: "1005", value: "test@test.com"}]
     Streak::Box.update_fields("box_key_1", params)
 
+Update Linked Boxes:
+
+    Streak::Box.update_linked_boxes("box_key_1", ["linked_box_key_1"])
+
 Delete a Box:
 
     Streak::Box.delete(demobox.key)

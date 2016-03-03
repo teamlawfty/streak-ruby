@@ -42,6 +42,10 @@ Retrieve list of boxes for a pipeline:
 
     Streak::Box.all(pipeline_key)
 
+Find a single Box:
+
+    Streak::Box.find("box_key_1")
+
 Update a single value of box field:
 
     Streak::FieldValue.update(box_key, field_key, :value => value)

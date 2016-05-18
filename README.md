@@ -63,6 +63,20 @@ Delete a Box:
 
     Streak::Box.delete(demobox.key)
 
+## Stages
+
+Retrieve list of stages for a pipeline:
+
+    Streak::Stage.all("pipeline_key_1")
+
+Find a single stage:
+
+    Streak::Stage.find("pipeline_key_1", "stage_key_1")
+
+Create a stage:
+
+    Streak::Stage.create("pipeline_key_1", name: "New Stage")
+
 ## Fields
 
 Retrieve list of fields for a pipeline:
@@ -75,6 +89,23 @@ Submit a Search query
 
     Streak::Search.query("box_key_1")
 
+## Webhook (uses api v2)
+
+Retrieve list of webhooks for a pipeline:
+
+    Streak::Webhook.all("pipeline_key_1")
+
+Find a single webhook:
+
+    Streak::Webhook.find("webhook_key_1")
+
+Create a webhook for a pipeline:
+
+    Streak::Webhook.create("pipeline_key_1", {event: 'BOX_CREATE', targetUrl: 'http://www.example.com'})
+
+
+## NOTES
+
 See the complete Streak API reference here: [http://www.streak.com/api/](http://www.streak.com/api/)
 
 This gem currently supports:
@@ -84,12 +115,13 @@ This gem currently supports:
 * Boxes
 * Stages
 * Fields
+* Search
+* Webhooks
 * Reminders (TODO)
 * Files (TODO)
 * Threads (TODO)
 * Comments (TODO)
 * Snippets (TODO)
-* Search (TODO)
 * Newsfeed (TODO)
 * Email filters for boxes
 * Box's linked boxes

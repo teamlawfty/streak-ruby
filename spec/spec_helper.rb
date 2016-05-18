@@ -165,3 +165,15 @@ def test_user(params={})
     "key" => "agptYWlsZm9vZ2FlciYLEgxPcmdhbml6YXRpb24iCnN0cmVhay5jb20MCxIEVXNlchgBDA"
   }.merge(params)
 end
+
+def test_webhook
+  {
+    "event": "BOX_CREATE",
+    "targetUrl": "http://of.dev",
+    "pipelineKey": "agptYWlsZm9vZ2FlcjELEgxPcmdhbml6YXRpb24iCnN0cmVhay5jb20MCxIIV29ya2Zsb3cYgICAgICA9AkM",
+    "userKey": "agptYWlsZm9vZ2Flci0LEgxPcmdhbml6YXRpb24iCnN0cmVhay5jb20MCxIEVXNlchiAgICAgID0Cgw",
+    "key": "agptYWlsZm9vZ2FlchQLEgdXZWJIb29rGICAgICAgNILDA",
+    "creationDate": 1458602998870,
+    "lastSavedTimestamp": 1458602998960
+  }
+end

@@ -16,9 +16,11 @@ require "streak/stage"
 require "streak/user"
 require "streak/search"
 require "streak/file"
+require "streak/webhook"
 
 module Streak
-  @api_base = "https://www.streak.com/api/v1"
+  @api_base    = "https://www.streak.com/api/v1"
+  @api_base_v2 = "https://www.streak.com/api/v2"
 
   # @ssl_bundle_path  = File.dirname(__FILE__) + '/data/ca-certificates.crt'
   # @verify_ssl_certs = true
@@ -28,11 +30,15 @@ module Streak
     attr_accessor :api_key, :api_base, :verify_ssl_certs
   end
 
-  def self.api_url(url='')
-    @api_base + url
+  def self.api_url(url='', api_version = 1)
+    if api_version = 1
+      @api_base + url
+    else
+      @api_base_v2 + url
+    end
   end
 
-  def self.request(method, url, params = {}, headers = {})
+  def self.request(method, url, params = {}, headers = {}, api_version = 1)
     http_method = method.to_s.downcase.to_sym
     case http_method
     when :get, :head, :delete
@@ -51,7 +57,7 @@ module Streak
       :headers => headers,
       :method => method,
       :verify_ssl => false,
-      :url  => api_url(url),
+      :url  => api_url(url, api_version),
       :user => api_key,
       :payload => payload
     }

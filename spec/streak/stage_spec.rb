@@ -28,7 +28,7 @@ describe Streak::Stage do
         with(Streak.api_url("/pipelines/pipeline_key_1/stages"), nil, "name=New%20Stage").
         and_return(test_response(stage))
 
-      Streak::Stage.create("pipeline_key_1", :name => "New Stage")
+      Streak::Stage.create("pipeline_key_1", name: "New Stage")
     end
   end
 end

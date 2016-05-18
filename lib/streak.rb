@@ -31,7 +31,7 @@ module Streak
   end
 
   def self.api_url(url='', api_version = 1)
-    if api_version = 1
+    if api_version == 1
       @api_base + url
     else
       @api_base_v2 + url

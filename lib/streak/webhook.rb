@@ -14,6 +14,16 @@ module Streak
       res = Streak.request(:put, "/pipelines/#{pipeline_key}/webhooks", params, {}, 2)
       convert_to_streak_object(res, Webhook)
     end
+
+    def self.edit(webhook_key, params)
+      res = Streak.request(:put, "/webhooks/#{webhook_key}", params, {}, 2)
+      convert_to_streak_object(res, Webhook)
+    end
+
+    def self.delete(webhook_key)
+      res = Streak.request(:delete, "/webhooks/#{webhook_key}", {}, {}, 2)
+      convert_to_streak_object(res, Webhook)
+    end
   end
 end
 

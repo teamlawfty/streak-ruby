@@ -24,7 +24,7 @@ describe Streak::Webhook do
 
   describe ".create" do
     it "should call the api" do
-      api.should_receive(:put).
+      api.should_receive(:post).
         with(Streak.api_url("/pipelines/pipeline_key_1/webhooks", 2), nil, "event=BOX_CREATE&targetUrl=http://of.dev").
         and_return(test_response(webhook))
 

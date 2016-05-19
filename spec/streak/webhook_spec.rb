@@ -24,8 +24,8 @@ describe Streak::Webhook do
 
   describe ".create" do
     it "should call the api" do
-      api.should_receive(:put).
-        with(Streak.api_url("/pipelines/pipeline_key_1/webhooks", 2), nil, "event=BOX_CREATE&targetUrl=http://of.dev").
+      api.should_receive(:post).
+        with(Streak.api_url("/pipelines/pipeline_key_1/webhooks", 2), nil, {event: 'BOX_CREATE', targetUrl: 'http://of.dev'}.to_json).
         and_return(test_response(webhook))
 
       Streak::Webhook.create("pipeline_key_1", {event: 'BOX_CREATE', targetUrl: 'http://of.dev'})
@@ -34,8 +34,8 @@ describe Streak::Webhook do
 
   describe ".edit" do
     it "should call the api" do
-      api.should_receive(:put).
-        with(Streak.api_url("/webhooks/webhook_key_1", 2), nil, "event=BOX_EDIT&targetUrl=http://of.dev/edit").
+      api.should_receive(:post).
+        with(Streak.api_url("/webhooks/webhook_key_1", 2), nil, {event: 'BOX_EDIT', targetUrl: 'http://of.dev/edit'}.to_json).
         and_return(test_response(webhook))
 
       Streak::Webhook.edit("webhook_key_1", {event: 'BOX_EDIT', targetUrl: 'http://of.dev/edit'})

@@ -47,8 +47,8 @@ module Streak
       payload = nil
     else
       payload = params.is_a?(String) ? params : uri_encode(params)
-
       if http_method == :post
+        payload = params if api_version == 2
         headers[:content_type] ||= "application/json"
       end
     end

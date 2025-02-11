@@ -102,7 +102,7 @@ module Streak
   private
 
   def self.uri_encode(params)
-    params.map { |k,v| "#{k}=#{URI.escape(v)}" }.join("&")
+    params.map { |k,v| "#{k}=#{CGI.escape(v)}" }.join("&")
   end
 
 end

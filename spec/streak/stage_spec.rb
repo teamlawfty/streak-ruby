@@ -25,7 +25,7 @@ describe Streak::Stage do
   describe ".create" do
     it "should call the api" do
       api.should_receive(:put).
-        with(Streak.api_url("/pipelines/pipeline_key_1/stages"), nil, "name=New%20Stage").
+        with(Streak.api_url("/pipelines/pipeline_key_1/stages"), nil, "name=New+Stage").
         and_return(test_response(stage))
 
       Streak::Stage.create("pipeline_key_1", name: "New Stage")

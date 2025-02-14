@@ -25,7 +25,7 @@ describe Streak::Pipeline do
   describe ".create" do
     it "should call the api" do
       api.should_receive(:put).
-        with(Streak.api_url("/pipelines"), nil, "name=Sales%20Pipeline").
+        with(Streak.api_url("/pipelines"), nil, "name=Sales+Pipeline").
         and_return(test_response(pipeline))
 
       Streak::Pipeline.create(:name => "Sales Pipeline")

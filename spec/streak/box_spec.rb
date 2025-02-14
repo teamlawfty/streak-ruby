@@ -35,7 +35,7 @@ describe Streak::Box do
   describe ".create" do
     it "should call the api" do
       api.should_receive(:put).
-        with(Streak.api_url("/pipelines/pipeline_key_1/boxes"), nil, "name=Great%20Vendor").
+        with(Streak.api_url("/pipelines/pipeline_key_1/boxes"), nil, "name=Great+Vendor").
         and_return(test_response(box))
 
       Streak::Box.create("pipeline_key_1", :name => "Great Vendor")
